@@ -161,10 +161,20 @@
 
 \begin{frame}
     \frametitle{Why this matters?}
+
+    \vspace{-1 cm}
     \begin{figure}
         \centering
-        \includegraphics[width=0.8\textwidth]{img_1/logic1.pdf}
+        \includegraphics[width=0.6\textwidth]{img_1/logic1.pdf}
     \end{figure}
+    \begin{block}{Directions}
+      \begin{itemize}
+        \item Fix $N$ and $\Omega$, generate more trajectories $\Rightarrow$ capture mean and/or bistability
+        \item Fix $N$, generate trajectories for different $\Omega$ $\Rightarrow$ extrapolate to unseen $\Omega$ values
+        \item Full model with $N$ and $\Omega$ 
+      \end{itemize}
+      
+    \end{block}
 \end{frame}
 
 
@@ -176,11 +186,24 @@
 
 
 \begin{frame}
-    \frametitle{Dataset for fixed $N$ and $\Omega$}
+    \frametitle{Dataset \& Model for $N = 8$}
+    \begin{figure}
+      \centering
+      \includegraphics[width=0.8\textwidth]{img_1/example_N_8.pdf}
+      \caption{Generated trajectory and averages for $N=8$ and $\Omega = 0.73\Omega_c$. Dataset contains $N_{tr} = 1000$ trajectories, each with $T=210$ time steps. We split it into training, testing and validation sets with ratio 80:10:10.}
+    \end{figure}
+    \begin{block}
+      {We use a Gate Recurrent Unit (GRU) model for predicting time series on \textbf{discrete} grid}
+      $x_{t+1} = f_{\theta}(x_t|h_t)$; $h_t$ -- \textit{hidden state}. Input: $x_t = [s_t, \tau_t]$; Output: $s_{t+1} \in [-1,1]$.
+      \cmark
+    \end{block}
+
+    
+
 \end{frame}
 
 
-\begin{frame}{Model Architecture}
+\begin{frame}{TrajectoryGRUGrid: Model Architecture}
 \centering
 
 \resizebox{\textwidth}{!}{%
