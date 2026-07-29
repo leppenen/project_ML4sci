@@ -1,0 +1,2 @@
+\beamer@sectionintoc {1}{Proposal}{3}{0}{1}
+\beamer@sectionintoc {2}{Fixed $N$ and $\Omega $: Generating more trajectories}{8}{0}{2}
