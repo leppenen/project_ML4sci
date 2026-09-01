@@ -323,4 +323,35 @@
 \end{block}
 \end{frame}
 
+\section{Dataset}
+
+\begin{frame}
+    \frametitle{Dataset: Quantum Trajectories with Variable $N$ and $\Omega$}
+    
+    \begin{block}{Data Generation (QuTiP MCWF)}
+        Monte Carlo wave-function simulations of a spin chain with dissipation:
+        \begin{itemize}
+            \item Chain of $N$ qubits with XY drive: $\mathcal{H} = 2\Omega \hat{S}_x$
+            \item Dephasing: $\gamma_0 = 1.0$ per qubit, collective dissipation: $\gamma_c = 10.0$
+            \item Time range: $t \in [0, 70]$ with 210 time points
+            \item Observable: collective spin $S_z = \sum_n \sigma_z^{(n)}$, normalized by $N$
+        \end{itemize}
+    \end{block}
+
+    \begin{block}{Dataset Structure}
+        Multiple datasets with varying conditions:
+        \begin{itemize}
+            \item \textbf{Particle numbers:} $N \in \{4, 6, 8, 10, 12, 14, 16, 18\}$
+            \item \textbf{Drive ratios:} $\Omega/\Omega_c \in \{0.61, 0.63, 0.65, 0.67, 0.69, 0.71, 0.75\}$ (bistability region)
+            \item \textbf{Trajectories per condition:} $\sim 1000$ stochastic realizations
+            \item \textbf{Split:} Train (80\%), Validation (10\%), Test (10\%) \emph{stratified by $(N, \Omega)$}
+        \end{itemize}
+    \end{block}
+
+    \begin{block}{Features}
+        Input: $[s_t, \tau_t, N_{\text{norm}}, \Omega_{\text{norm}}]$ \quad Output: $s_{t+1}$\\
+        Allows model to learn dynamics across different conditions.
+    \end{block}
+\end{frame}
+
 \end{document}
