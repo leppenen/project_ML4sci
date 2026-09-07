@@ -6,7 +6,7 @@ The physical model consists of a driven array of quantum emitters in a cavity wi
 
 ## Background & Motivation
 
-In our recent paper, [Leppenen & Shahmoon, Phys. Rev. A **114**, 013720 (2026)](https://journals.aps.org/pra/abstract/10.1103/cy7b-hsl3), we demonstrated that for certain drive values, the system exhibits switching between two quantum states—a phenomenon directly observable in single quantum trajectories. 
+In our recent paper, [Leppenen & Shahmoon, Phys. Rev. A **114**, 013720 (2026)](https://doi.org/10.1103/cy7b-hsl3), we demonstrated that for certain drive values, the system exhibits switching between two quantum states—a phenomenon directly observable in single quantum trajectories. 
 
 Due to the exponential growth of the Hilbert space, exact quantum trajectory simulations are currently restricted to system sizes up to $N = 18$. The goal of this machine learning model is to learn the magnetization dynamics over time from these simulated trajectories and predict the system's behavior for larger $N$, as well as across different laser drive regions.
 
@@ -34,7 +34,8 @@ This project includes multiple model variants for different conditioning setups:
 ## Results
 
 The main findings of this project are summarized in the poster [`Poster_TrajGRU.pdf`](Poster_TrajGRU.pdf), which was presented at the project defense for the *Deep Learning for Science* course at the Weizmann Institute of Science.
----
+
+
 ## Requirements
 
 This project expects a Python environment with:
